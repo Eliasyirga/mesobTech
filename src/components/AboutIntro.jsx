@@ -2,7 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const AboutIntro = () => (
-  <section className="relative bg-gradient-to-br from-black via-gray-900 to-black text-white py-24 overflow-hidden">
+  <section
+    id="about"
+    className="relative bg-gradient-to-br from-black via-gray-900 to-black text-white py-24 overflow-hidden"
+  >
     {/* Decorative glowing background */}
     <div className="absolute inset-0">
       <div className="absolute top-0 left-0 w-72 h-72 bg-lime-500/10 rounded-full blur-3xl" />
