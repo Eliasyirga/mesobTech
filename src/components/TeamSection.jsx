@@ -4,19 +4,19 @@ import { motion } from "framer-motion";
 const teamMembers = [
   {
     name: "Elias Yirga",
-    role: "Founder & CEO",
+    role: "Founder & Full Stack Developer",
     img: "/team1.webp",
     portfolio: "https://eliasyirga.vercel.app",
   },
   {
     name: "Biniam Beza",
-    role: "Lead Developer",
+    role: "Senior Full Stack Developer",
     img: "/team2.jpg",
     portfolio: "https://your-portfolio-link.com/biniam",
   },
   {
     name: "Asires Yayeh",
-    role: "UI/UX Designer",
+    role: "Senior Mobile APP Developer",
     img: "/team3.jpg",
     portfolio: "https://your-portfolio-link.com/asires",
   },
