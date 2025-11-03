@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+/* In index.css or App.css */
+body {
+  font-family: "Poppins", sans-serif;
+}
