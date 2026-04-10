@@ -1,83 +1,107 @@
-// import React from "react";
-// import { motion } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 
-// const galleryImages = ["/ceo.webp", "/team2.jpg", "/team3.jpg", "/team4.jpg"];
+const galleryItems = [
+  {
+    title: "Public Service Portal",
+    category: "GovTech",
+    size: "md:col-span-2 md:row-span-2",
+    // Represents a clean, complex dashboard/city interface
+    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
+  },
+  {
+    title: "Emergency Dashboard",
+    category: "Infrastructure",
+    size: "md:col-span-1 md:row-span-1",
+    // Dark UI with data visualizations
+    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+  },
+  {
+    title: "MERN Architecture",
+    category: "Backend",
+    size: "md:col-span-1 md:row-span-2",
+    // Abstract code/server room depth
+    img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop",
+  },
+  {
+    title: "Voucher Tracking",
+    category: "FinTech",
+    size: "md:col-span-1 md:row-span-1",
+    // Clean, abstract nodes/connection
+    img: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2232&auto=format&fit=crop",
+  },
+  {
+    title: "Mobile Interface",
+    category: "Flutter",
+    size: "md:col-span-2 md:row-span-1",
+    // High-tech mobile development/UI focus
+    img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070&auto=format&fit=crop",
+  },
+];
+const Gallery = () => {
+  return (
+    <section id="gallery" className="py-24 bg-[#050505] text-white">
+      <div className="max-w-7xl mx-auto px-8">
+        {/* Section Header */}
+        <div className="mb-16">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="h-px w-10 bg-blue-600" />
+            <span className="text-blue-500 font-mono text-[10px] uppercase tracking-[0.4em]">
+              Visual Archive
+            </span>
+          </div>
+          <h2 className="text-5xl font-black tracking-tighter uppercase">
+            Project <span className="text-gray-700">Snapshots</span>
+          </h2>
+        </div>
 
-// const GallerySection = () => (
-//   <section className="relative bg-gradient-to-b from-black via-gray-900 to-black text-white py-24 overflow-hidden">
-//     {/* Background glow */}
-//     <div className="absolute inset-0 pointer-events-none">
-//       <div className="absolute top-10 left-10 w-72 h-72 bg-lime-500/10 rounded-full blur-3xl" />
-//       <div className="absolute bottom-10 right-10 w-96 h-96 bg-lime-400/10 rounded-full blur-3xl" />
-//     </div>
+        {/* Bento Grid Gallery */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[200px]">
+          {galleryItems.map((item, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              className={`${item.size} relative group overflow-hidden bg-[#111] border border-white/5`}
+            >
+              {/* Image */}
+              <img
+                src={item.img}
+                alt={item.title}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100 grayscale group-hover:grayscale-0"
+              />
 
-//     <div className="max-w-7xl mx-auto px-6 relative z-10">
-//       {/* Title */}
-//       <motion.h3
-//         className="text-4xl md:text-5xl font-extrabold text-lime-400 mb-16 text-center"
-//         style={{ fontFamily: "'Poppins', sans-serif" }}
-//         initial={{ opacity: 0, y: -30 }}
-//         whileInView={{ opacity: 1, y: 0 }}
-//         viewport={{ once: true }}
-//         transition={{ duration: 0.8 }}
-//       >
-//         Our Work in Action
-//       </motion.h3>
+              {/* Technical Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-6 flex flex-col justify-end">
+                <span className="text-blue-400 font-mono text-[10px] uppercase tracking-widest mb-1">
+                  {item.category}
+                </span>
+                <h3 className="text-xl font-bold tracking-tight">
+                  {item.title}
+                </h3>
 
-//       {/* Asymmetric Grid: left, middle (stacked), right */}
-//       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 items-center">
-//         {/* Left Image */}
-//         <motion.div
-//           className="flex justify-end md:col-span-1"
-//           initial={{ opacity: 0, x: -50 }}
-//           whileInView={{ opacity: 1, x: 0 }}
-//           viewport={{ once: true }}
-//           transition={{ duration: 0.8 }}
-//         >
-//           <img
-//             src={galleryImages[0]}
-//             alt="Project 1"
-//             className="w-[280px] h-[360px] object-cover rounded-2xl shadow-[0_0_30px_rgba(163,230,53,0.2)] hover:shadow-[0_0_40px_rgba(163,230,53,0.4)] transition-all duration-700 transform hover:scale-105"
-//           />
-//         </motion.div>
+                {/* Decorative scanning line on hover */}
+                <div className="absolute top-0 left-0 w-full h-1 bg-blue-500/50 blur-sm -translate-y-full group-hover:translate-y-[400px] transition-transform duration-[2000ms] pointer-events-none" />
+              </div>
 
-//         {/* Middle Two Images (stacked vertically) */}
-//         <motion.div
-//           className="flex flex-col justify-between items-center md:col-span-2 gap-6"
-//           initial={{ opacity: 0, y: 50 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           viewport={{ once: true }}
-//           transition={{ duration: 0.8 }}
-//         >
-//           <img
-//             src={galleryImages[1]}
-//             alt="Project 2"
-//             className="w-[260px] h-[180px] md:h-[300px] object-cover rounded-2xl shadow-[0_0_25px_rgba(163,230,53,0.2)] hover:shadow-[0_0_35px_rgba(163,230,53,0.4)] transition-all duration-700 transform hover:scale-105"
-//           />
-//           <img
-//             src={galleryImages[2]}
-//             alt="Project 3"
-//             className="w-[260px] h-[180px] md:h-[300px] object-cover rounded-2xl shadow-[0_0_25px_rgba(163,230,53,0.2)] hover:shadow-[0_0_35px_rgba(163,230,53,0.4)] transition-all duration-700 transform hover:scale-105"
-//           />
-//         </motion.div>
+              {/* Static ID Label */}
+              <div className="absolute top-4 right-4 text-[8px] font-mono text-white/20 uppercase tracking-widest">
+                IMG_REF_{idx + 102}
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
-//         {/* Right Image */}
-//         <motion.div
-//           className="flex justify-start md:col-span-1"
-//           initial={{ opacity: 0, x: 50 }}
-//           whileInView={{ opacity: 1, x: 0 }}
-//           viewport={{ once: true }}
-//           transition={{ duration: 0.8 }}
-//         >
-//           <img
-//             src={galleryImages[3]}
-//             alt="Project 4"
-//             className="w-[280px] h-[360px] object-cover rounded-2xl shadow-[0_0_30px_rgba(163,230,53,0.2)] hover:shadow-[0_0_40px_rgba(163,230,53,0.4)] transition-all duration-700 transform hover:scale-105"
-//           />
-//         </motion.div>
-//       </div>
-//     </div>
-//   </section>
-// );
+        {/* Footer Detail */}
+        <div className="mt-12 flex justify-between items-center text-[10px] font-mono text-gray-600 uppercase tracking-widest">
+          <span>Data_Points: 05</span>
+          <span>Filtered_By: Engineering_Excellence</span>
+        </div>
+      </div>
+    </section>
+  );
+};
 
-// export default GallerySection;
+export default Gallery;

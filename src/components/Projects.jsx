@@ -4,86 +4,114 @@ import { motion } from "framer-motion";
 const projects = [
   {
     name: "Referral Voucher Portal",
-    desc: "Digital system for tracking community health referral vouchers.",
+    type: "Public Health // Fintech",
+    desc: "A secure digital ecosystem for tracking and validating community health referral vouchers in real-time.",
     img: "/project1.png",
+    tags: ["React", "Node.js", "MongoDB"],
   },
   {
     name: "E-Kebele Services",
-    desc: "One-stop digital services for kebele administration.",
+    type: "GovTech // Infrastructure",
+    desc: "Streamlining local administration through a unified digital service portal for Ethiopian kebele management.",
     img: "/project2.png",
+    tags: ["Flutter", "Express", "PostgreSQL"],
   },
   {
     name: "AI Health Triage",
-    desc: "Prototype ML triage for community health workers.",
+    type: "Machine Learning // R&D",
+    desc: "Predictive ML triage prototype designed to assist community health workers with diagnostic prioritization.",
     img: "/project3.png",
+    tags: ["Python", "TensorFlow", "React Native"],
   },
 ];
 
 const Projects = () => (
-  <section
-    id="projects"
-    className="relative py-24 bg-gradient-to-b from-black via-gray-900 to-black text-white overflow-hidden"
-  >
-    {/* Background glow */}
-    <div className="absolute inset-0 pointer-events-none">
-      <div className="absolute top-10 left-10 w-64 h-64 bg-lime-500/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-10 right-10 w-80 h-80 bg-lime-400/10 rounded-full blur-3xl" />
-    </div>
+  <section id="projects" className="py-32 bg-[#050505] text-white relative">
+    <div className="max-w-7xl mx-auto px-8 relative z-10">
+      {/* Editorial Header */}
+      <div className="flex flex-col md:flex-row justify-between items-end mb-24 border-b border-white/10 pb-12">
+        <div className="max-w-xl">
+          <h3 className="text-blue-500 font-mono text-sm tracking-[0.4em] uppercase mb-4">
+            Selected Deployments
+          </h3>
+          <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none">
+            SYSTEM <br />
+            <span className="text-gray-600">ARCHIVE.</span>
+          </h2>
+        </div>
+        <p className="text-gray-500 text-sm font-mono mt-6 md:mt-0">
+          [ 2024 - 2026 // ADDIS ABABA ]
+        </p>
+      </div>
 
-    <div className="max-w-6xl mx-auto px-6 relative z-10">
-      <h2
-        className="text-4xl md:text-5xl font-extrabold text-lime-400 mb-3"
-        style={{ fontFamily: "'Poppins', sans-serif" }}
-      >
-        Projects
-      </h2>
-      <p
-        className="text-gray-300 text-lg md:text-xl mb-12"
-        style={{ lineHeight: 1.8 }}
-      >
-        Selected work and prototypes showcasing our approach.
-      </p>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* Projects List */}
+      <div className="flex flex-col gap-32">
         {projects.map((p, idx) => (
           <motion.div
             key={p.name}
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: idx * 0.2, duration: 0.7 }}
-            whileHover={{ y: -8, scale: 1.03, rotate: 0.5 }}
-            className="relative bg-black/20 backdrop-blur-md border border-lime-600/30 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer"
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className={`flex flex-col ${idx % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} gap-12 items-center`}
           >
-            <div className="relative w-full h-56 md:h-64 overflow-hidden">
-              <img
-                src={p.img}
-                alt={p.name}
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-70" />
-            </div>
-
-            <div className="p-6 text-center">
-              <h4
-                className="text-2xl font-bold text-lime-400 mb-2"
-                style={{ fontFamily: "'Poppins', sans-serif" }}
-              >
-                {p.name}
-              </h4>
-              <p className="text-gray-300 text-sm md:text-base">{p.desc}</p>
-              <div className="mt-4">
-                <a
-                  href="#contact"
-                  className="inline-block px-4 py-2 rounded-full bg-lime-400 text-black font-semibold shadow-md hover:bg-lime-500 hover:shadow-lg transition-all duration-300"
-                >
-                  See details →
-                </a>
+            {/* Image Side with "Device Frame" feel */}
+            <div className="w-full lg:w-3/5 group cursor-pointer">
+              <div className="relative overflow-hidden rounded-sm border border-white/10 bg-[#111]">
+                <img
+                  src={p.img}
+                  alt={p.name}
+                  className="w-full aspect-video object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-in-out grayscale group-hover:grayscale-0"
+                />
+                {/* Technical Overlay */}
+                <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 text-[10px] font-mono border border-white/10 text-blue-400">
+                  SYSTEM_ID: 00{idx + 1}
+                </div>
               </div>
             </div>
 
-            {/* Glow accent */}
-            <div className="absolute inset-0 pointer-events-none rounded-3xl bg-lime-400/10 opacity-0 hover:opacity-30 transition-opacity duration-500"></div>
+            {/* Content Side */}
+            <div className="w-full lg:w-2/5">
+              <span className="text-blue-500 font-mono text-[10px] uppercase tracking-widest block mb-4">
+                {p.type}
+              </span>
+              <h4 className="text-4xl font-bold mb-6 tracking-tight text-white uppercase">
+                {p.name}
+              </h4>
+              <p className="text-gray-400 text-lg leading-relaxed mb-8 font-light">
+                {p.desc}
+              </p>
+
+              {/* Tech Tags */}
+              <div className="flex flex-wrap gap-2 mb-10">
+                {p.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-[10px] font-bold text-gray-500 border border-gray-800 px-3 py-1 rounded-full uppercase tracking-tighter"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <button className="flex items-center gap-4 group">
+                <span className="text-xs font-black uppercase tracking-[0.3em] border-b-2 border-blue-500 pb-1">
+                  Explore Architecture
+                </span>
+                <div className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center group-hover:translate-x-2 transition-transform">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </button>
+            </div>
           </motion.div>
         ))}
       </div>

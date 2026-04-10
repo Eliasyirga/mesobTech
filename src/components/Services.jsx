@@ -3,76 +3,110 @@ import { motion } from "framer-motion";
 
 const services = [
   {
-    title: "Software Development",
-    desc: "Custom web & mobile applications, backend systems, and APIs.",
+    title: "Full-Stack Architecture",
+    desc: "Custom MERN systems designed for massive scale and low latency.",
+    tag: "DEVELOPMENT",
   },
   {
-    title: "AI Solutions",
-    desc: "ML pipelines, NLP, computer vision, and automation.",
+    title: "Native Mobile Ecosystems",
+    desc: "Cross-platform Flutter apps with a focus on seamless UX and local offline-first logic.",
+    tag: "MOBILE",
   },
   {
-    title: "IT Services",
-    desc: "Infrastructure, cloud, and managed IT solutions.",
+    title: "Intelligent Automation",
+    desc: "Python-driven ML pipelines and NLP solutions for localized Ethiopian data.",
+    tag: "AI & ML",
   },
   {
-    title: "Web & App Development",
-    desc: "Responsive, accessible, and beautiful interfaces.",
+    title: "UI/UX Editorial Design",
+    desc: "Premium, high-performance interfaces that bridge culture and technology.",
+    tag: "DESIGN",
   },
   {
-    title: "Digital Transformation",
-    desc: "Strategy, implementation, and change management.",
+    title: "Public Service Systems",
+    desc: "Specialized platforms like BahirLink for emergency and community response.",
+    tag: "SPECIALIZED",
   },
 ];
 
 const Services = () => (
   <section
     id="services"
-    className="py-24 bg-gradient-to-b from-black via-gray-900 to-black text-white relative overflow-hidden"
+    className="py-32 bg-[#050505] text-white relative overflow-hidden"
   >
-    {/* Background glow circles */}
-    <div className="absolute inset-0 pointer-events-none">
-      <div className="absolute top-10 left-10 w-64 h-64 bg-lime-500/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-10 right-10 w-80 h-80 bg-lime-400/10 rounded-full blur-3xl" />
-    </div>
+    {/* Grid Background */}
+    <div
+      className="absolute inset-0 opacity-[0.05] [mask-image:radial-gradient(ellipse_at_center,black,transparent)]"
+      style={{
+        backgroundImage:
+          "linear-gradient(to right, #4f46e5 1px, transparent 1px), linear-gradient(to bottom, #4f46e5 1px, transparent 1px)",
+        backgroundSize: "80px 80px",
+      }}
+    />
 
-    <div className="max-w-6xl mx-auto px-6 relative z-10">
-      <h2
-        className="text-4xl md:text-5xl font-extrabold text-lime-400 mb-3"
-        style={{ fontFamily: "'Poppins', sans-serif" }}
-      >
-        Services
-      </h2>
-      <p
-        className="text-gray-300 text-lg md:text-xl mb-12"
-        style={{ lineHeight: 1.8 }}
-      >
-        Comprehensive services designed for startups, NGOs, and enterprises.
-      </p>
+    <div className="max-w-7xl mx-auto px-8 relative z-10">
+      <header className="mb-20 max-w-2xl">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="h-px w-8 bg-blue-500" />
+          <span className="text-blue-500 font-mono text-[10px] uppercase tracking-[0.4em]">
+            Capabilites
+          </span>
+        </div>
+        <h2 className="text-5xl md:text-7xl font-black tracking-tighter mb-6">
+          ENGINEERING <span className="text-gray-600 italic">VALUE.</span>
+        </h2>
+        <p className="text-gray-400 text-lg font-light leading-relaxed">
+          Zala Tech delivers precise, mission-critical digital infrastructure
+          for the Ethiopian innovation sector.
+        </p>
+      </header>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-4">
         {services.map((s, idx) => (
           <motion.div
             key={s.title}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: idx * 0.2, duration: 0.7 }}
-            whileHover={{ y: -10, scale: 1.03 }}
-            className="relative p-6 rounded-3xl bg-black/20 border border-lime-600/40 backdrop-blur-md shadow-lg hover:shadow-2xl transition-all duration-500"
+            transition={{ delay: idx * 0.1, duration: 0.5 }}
+            className={`
+              relative p-8 border border-white/5 bg-white/[0.02] backdrop-blur-sm 
+              hover:border-blue-500/50 hover:bg-white/[0.05] transition-all duration-500
+              ${idx === 0 || idx === 3 ? "md:col-span-3 lg:col-span-4" : "md:col-span-3 lg:col-span-4"}
+              ${idx === 4 ? "md:col-span-6 lg:col-span-12" : ""}
+            `}
           >
-            <h4 className="text-xl md:text-2xl font-bold text-lime-400 mb-2 relative">
-              {s.title}
-              <span className="absolute -bottom-1 left-0 w-16 h-1 bg-lime-400 rounded-full"></span>
-            </h4>
-            <p className="text-gray-300 text-base md:text-lg mt-2">{s.desc}</p>
-            <div className="mt-6">
-              <a
-                href="#contact"
-                className="inline-block px-4 py-2 rounded-full bg-lime-400 text-black font-semibold shadow-md hover:shadow-lg hover:bg-lime-500 transition-all duration-300"
-              >
-                Request Quote →
-              </a>
+            {/* Top Row: Tag & Number */}
+            <div className="flex justify-between items-start mb-12">
+              <span className="text-[10px] font-mono text-blue-400 border border-blue-400/30 px-2 py-0.5 tracking-tighter">
+                {s.tag}
+              </span>
+              <span className="text-white/10 font-mono text-sm tracking-tighter">
+                0{idx + 1}
+              </span>
             </div>
+
+            <h4 className="text-2xl font-bold text-white mb-4 tracking-tight">
+              {s.title}
+            </h4>
+            <p className="text-gray-500 text-sm leading-relaxed mb-8 max-w-sm">
+              {s.desc}
+            </p>
+
+            <button className="group flex items-center gap-2 text-[10px] font-black tracking-[0.2em] text-white uppercase mt-auto transition-all">
+              Initiate Project
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="3"
+                className="group-hover:translate-x-1 transition-transform"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
           </motion.div>
         ))}
       </div>

@@ -7,7 +7,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import AboutIntro from "./components/AboutIntro";
 import TeamSection from "./components/TeamSection";
-// import GallerySection from "./components/GallerySection";
+import GallerySection from "./components/GallerySection";
 
 export default function App() {
   return (
@@ -17,7 +17,7 @@ export default function App() {
         <Hero />
         <AboutIntro />
         <TeamSection />
-        {/* <GallerySection /> */}
+        <GallerySection />
         <Services />
         <Projects />
         <Contact />

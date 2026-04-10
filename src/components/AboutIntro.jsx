@@ -4,63 +4,111 @@ import { motion } from "framer-motion";
 const AboutIntro = () => (
   <section
     id="about"
-    className="relative bg-gradient-to-br from-black via-gray-900 to-black text-white py-24 overflow-hidden"
+    className="relative bg-[#050505] text-white py-32 overflow-hidden"
   >
-    {/* Decorative glowing background */}
-    <div className="absolute inset-0">
-      <div className="absolute top-0 left-0 w-72 h-72 bg-lime-500/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-10 right-10 w-72 h-72 bg-lime-400/10 rounded-full blur-3xl" />
-    </div>
+    {/* Subtle Tech Accents */}
+    <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px]" />
+    <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] bg-indigo-900/10 rounded-full blur-[100px]" />
 
-    <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center gap-12 md:gap-20">
-      {/* Text Section */}
+    <div className="max-w-7xl mx-auto px-8 relative z-10 flex flex-col lg:flex-row items-center gap-16">
+      {/* Content Section */}
       <motion.div
-        className="md:w-1/2"
-        initial={{ opacity: 0, x: -60 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.9, ease: "easeOut" }}
+        className="lg:w-3/5"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
       >
-        <h2
-          className="text-5xl md:text-6xl font-extrabold text-lime-400 mb-8 leading-tight"
-          style={{ fontFamily: "'Poppins', sans-serif" }}
-        >
-          About <span className="text-white">MesobTech</span>
+        <div className="flex items-center gap-4 mb-6">
+          <div className="h-[1px] w-12 bg-blue-500" />
+          <span className="text-blue-500 font-mono text-sm tracking-[0.3em] uppercase">
+            Mission 01
+          </span>
+        </div>
+
+        <h2 className="text-5xl md:text-7xl font-black mb-8 tracking-tighter leading-[0.9]">
+          SCALING THE <br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">
+            DIGITAL HARVEST.
+          </span>
         </h2>
 
-        <p
-          className="text-gray-300 text-lg md:text-xl mb-10 max-w-lg"
-          style={{ fontFamily: "'Raleway', sans-serif", lineHeight: "1.8" }}
-        >
-          At <span className="text-lime-400 font-semibold">MesobTech</span>, we
-          blend Ethiopia’s cultural richness with cutting-edge innovation. Our
-          mission is to craft scalable software, AI-driven systems, and digital
-          solutions that empower communities and organizations across Africa.
+        <p className="text-gray-400 text-lg md:text-xl mb-10 max-w-2xl leading-relaxed font-light">
+          Zala Tech represents the fundamental unit of growth. We architect
+          high-performance
+          <span className="text-white font-medium"> MERN & Flutter </span>{" "}
+          ecosystems designed to solve complex challenges in public service and
+          enterprise management across Ethiopia.
         </p>
 
-        <motion.a
-          href="#contact"
-          className="inline-block px-10 py-4 rounded-full bg-lime-400 text-black font-bold shadow-[0_0_25px_rgba(163,230,53,0.5)] hover:shadow-[0_0_35px_rgba(163,230,53,0.7)] transform transition-all hover:scale-105"
-          whileHover={{ scale: 1.05 }}
+        <div className="grid grid-cols-2 gap-8 mb-12 border-y border-white/5 py-8">
+          <div>
+            <h4 className="text-white font-bold text-2xl">99.9%</h4>
+            <p className="text-gray-500 text-xs uppercase tracking-widest mt-1">
+              System Uptime
+            </p>
+          </div>
+          <div>
+            <h4 className="text-white font-bold text-2xl">Modern</h4>
+            <p className="text-gray-500 text-xs uppercase tracking-widest mt-1">
+              UI/UX Standards
+            </p>
+          </div>
+        </div>
+
+        <motion.button
+          whileHover={{ x: 10 }}
+          className="flex items-center gap-4 text-white group"
         >
-          Get in Touch
-        </motion.a>
+          <span className="text-sm font-bold uppercase tracking-[0.2em]">
+            Explore our stack
+          </span>
+          <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-blue-600 group-hover:border-blue-600 transition-all">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </div>
+        </motion.button>
       </motion.div>
 
-      {/* Image Section */}
+      {/* Visual Component Section */}
       <motion.div
-        className="md:w-1/2 flex justify-center"
-        initial={{ opacity: 0, x: 60 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.9, ease: "easeOut" }}
+        className="lg:w-2/5 relative"
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
       >
-        <div className="relative group w-full md:w-[420px] h-[280px] md:h-[320px] overflow-hidden rounded-3xl">
+        {/* The "Main" Image with Decorative Border */}
+        <div className="relative p-4 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm">
           <img
             src="/office.jpg"
-            alt="About MesobTech"
-            className="w-full h-full object-cover rounded-3xl shadow-[0_0_30px_rgba(163,230,53,0.3)] transform transition-transform duration-700 group-hover:scale-105"
+            alt="Zala Tech Engineering"
+            className="w-full grayscale hover:grayscale-0 transition-all duration-700 rounded-lg shadow-2xl"
           />
-          <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-black/50 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+
+          {/* Floating HUD Element */}
+          <div className="absolute -bottom-6 -right-6 bg-blue-600 p-6 rounded-xl shadow-xl hidden md:block">
+            <div className="flex flex-col gap-1">
+              <span className="text-[10px] font-mono text-blue-200 uppercase tracking-tighter">
+                Current Project
+              </span>
+              <span className="text-white font-bold text-sm">
+                BahirLink Dashboard
+              </span>
+            </div>
+          </div>
         </div>
+
+        {/* Background Decorative Squares */}
+        <div className="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-blue-500/30" />
       </motion.div>
     </div>
   </section>
