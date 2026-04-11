@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 const ZalaHero = () => {
   const canvasRef = useRef(null);
 
-  // Background Particle Animation Logic
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
@@ -65,7 +64,6 @@ const ZalaHero = () => {
     };
   }, []);
 
-  // Marquee Content
   const tickerItems = [
     "SYSTEM_INIT_SUCCESS",
     "BAHIRLINK_V2.0_DEPLOYED",
@@ -77,7 +75,6 @@ const ZalaHero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-[#050505] overflow-hidden font-sans">
-      {/* --- NEW: TOP MOVING DATA TICKER --- */}
       <div className="absolute top-0 left-0 w-full h-10 bg-blue-600/5 border-b border-white/5 backdrop-blur-sm z-50 flex items-center overflow-hidden">
         <motion.div
           animate={{ x: [0, -1000] }}
@@ -96,13 +93,11 @@ const ZalaHero = () => {
         </motion.div>
       </div>
 
-      {/* 1. Animated Canvas Layer */}
       <canvas
         ref={canvasRef}
         className="absolute inset-0 pointer-events-none opacity-40"
       />
 
-      {/* 2. Editorial Grid with Pulse */}
       <div
         className="absolute inset-0 opacity-[0.1]"
         style={{
@@ -111,7 +106,6 @@ const ZalaHero = () => {
         }}
       />
 
-      {/* 3. Floating Ambient Orbs */}
       <motion.div
         animate={{
           scale: [1, 1.2, 1],
@@ -123,7 +117,6 @@ const ZalaHero = () => {
 
       <div className="container mx-auto px-6 z-10">
         <div className="max-w-5xl mx-auto">
-          {/* Top Badge with Slide In */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -135,7 +128,6 @@ const ZalaHero = () => {
             </span>
           </motion.div>
 
-          {/* Main Typography */}
           <div className="text-center relative">
             <motion.h1
               initial={{ opacity: 0, filter: "blur(20px)" }}
@@ -166,7 +158,6 @@ const ZalaHero = () => {
               enterprise.
             </motion.p>
 
-            {/* Action Group */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -199,7 +190,6 @@ const ZalaHero = () => {
         </div>
       </div>
 
-      {/* Side Tech Indicators */}
       <div className="absolute left-10 top-1/2 -translate-y-1/2 hidden lg:block">
         <div className="flex flex-col gap-8">
           {["01_MERN", "02_FLUTTER", "03_PYTHON"].map((tech) => (
